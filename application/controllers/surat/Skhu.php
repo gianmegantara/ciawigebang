@@ -13,7 +13,7 @@ class Skhu extends CI_Controller {
 			redirect('auth');
 		}
 
-		$this->form_validation->set_rules('nik', 'NIK', 'required');
+		$this->form_validation->set_rules('keyword', 'NIK/NAMA', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = 'Cari Data Penduduk';
@@ -23,7 +23,7 @@ class Skhu extends CI_Controller {
 			$this->load->view('template/footer');
 		} else {
 			$data['title'] = 'Buat Surat Keterangan Usaha';
-			$data['penduduk'] = $this->penduduk_model->get_penduduk_nik($this->input->post('nik'));
+			$data['penduduk'] = $this->penduduk_model->get_penduduk($this->input->post('keyword'));
 			$this->load->view('template/header', $data);
 			$this->load->view('template/menu', $data);
 			$this->load->view('surat/skhu/cari_data_penduduk');
@@ -32,9 +32,9 @@ class Skhu extends CI_Controller {
 		}
 	}
 
-	public function download($nik)
+	public function download($keyword)
 	{
-		$data = $this->penduduk_model->get_penduduk_nik($nik);
+		$data = $this->penduduk_model->get_penduduk($nik);
 		$this->load->library('phpword');
 		$tgl = date('d');
 		$bln = array(
