@@ -13,7 +13,7 @@ class Sktm extends CI_Controller {
 			redirect('auth');
 		}
 
-		$this->form_validation->set_rules('nik', 'NIK', 'required');
+		$this->form_validation->set_rules('keyword', 'Nama / NIK', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = 'Cari Data Penduduk';
@@ -23,7 +23,7 @@ class Sktm extends CI_Controller {
 			$this->load->view('template/footer');
 		} else {
 			$data['title'] = 'Buat Surat Keterangan Usaha';
-			$data['penduduk'] = $this->penduduk_model->get_penduduk_nik($this->input->post('nik'));
+			$data['penduduk'] = $this->penduduk_model->get_penduduk($this->input->post('keyword'));
 			$this->load->view('template/header', $data);
 			$this->load->view('template/menu', $data);
 			$this->load->view('surat/sktm/cari_data_penduduk');
@@ -34,7 +34,6 @@ class Sktm extends CI_Controller {
 
 	public function download($nik)
 	{
-		//echo $this->input->post('untuk');
 		$data = $this->penduduk_model->get_penduduk_nik($nik);
 		$jk = NULL;
 		if ($data->JENISKELAMIN == 'L') {

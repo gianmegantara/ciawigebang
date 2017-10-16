@@ -81,7 +81,7 @@ foreach ($penduduk as $penduduk) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Tutup"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="downloadSuratLabel">Buat Surat Keterangan Tidak Mampu</h4>
+        <h4 class="modal-title" id="downloadSuratLabel">Buat Surat Keterangan Usaha</h4>
       </div>
       <form id="formsurat" method="post" action="<?php echo base_url('surat/sktm/download/'.$penduduk->NIK); ?>">
 	      <div class="modal-body">
@@ -102,8 +102,8 @@ foreach ($penduduk as $penduduk) {
 		        <input type="text" class="form-control" id="ayah" readonly>
 		      </div>
 		      <div class="form-group">
-		        <label for="untuk" class="control-label">Untuk</label>
-		        <input type="text" class="form-control" id="untuk" name="untuk" required>
+		        <label for="usaha" class="control-label">Usaha</label>
+		        <input type="text" class="form-control" id="usaha" name="usaha" required>
 		      </div>
 	      </div>
 	      <div class="modal-footer">
@@ -126,9 +126,9 @@ foreach ($penduduk as $penduduk) {
 	  modal.find('#nama').val(nama)
 	  modal.find('#ibu').val(ibu)
 	  modal.find('#ayah').val(ayah)
-	  modal.find('#untuk').val('')
+	  modal.find('#usaha').val('')
 	  var formsurat = document.getElementById("formsurat")
-	  var linkaction = "<?= base_url('surat/sktm/download'); ?>" + "/" + nik
+	  var linkaction = "<?= base_url('surat/sku/download'); ?>" + "/" + nik
 	  formsurat.action = linkaction
 	})
 </script>
