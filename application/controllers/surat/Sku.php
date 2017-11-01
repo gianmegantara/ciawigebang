@@ -1,5 +1,5 @@
 <?php
-class Skhu extends CI_Controller {
+class Sku extends CI_Controller {
 
 	public function __construct()
 	{
@@ -13,21 +13,21 @@ class Skhu extends CI_Controller {
 			redirect('auth');
 		}
 
-		$this->form_validation->set_rules('nik', 'NIK', 'required');
+		$this->form_validation->set_rules('keyword', 'Nama / NIK', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = 'Cari Data Penduduk';
 			$this->load->view('template/header', $data);
 			$this->load->view('template/menu', $data);
-			$this->load->view('surat/skhu/cari_data_penduduk');
+			$this->load->view('surat/sku/cari_data_penduduk');
 			$this->load->view('template/footer');
 		} else {
 			$data['title'] = 'Buat Surat Keterangan Usaha';
-			$data['penduduk'] = $this->penduduk_model->get_penduduk_nik($this->input->post('nik'));
+			$data['penduduk'] = $this->penduduk_model->get_penduduk($this->input->post('keyword'));
 			$this->load->view('template/header', $data);
 			$this->load->view('template/menu', $data);
-			$this->load->view('surat/skhu/cari_data_penduduk');
-			$this->load->view('surat/skhu/tampil_data_penduduk', $data);
+			$this->load->view('surat/sku/cari_data_penduduk');
+			$this->load->view('surat/sku/tampil_data_penduduk', $data);
 			$this->load->view('template/footer');
 		}
 	}
@@ -61,7 +61,7 @@ class Skhu extends CI_Controller {
 		$templateProcessor->setValue('dsn', 'Manis');
 		$templateProcessor->setValue('rt', '001');
 		$templateProcessor->setValue('rw', '002');
-		$templateProcessor->setValue('usaha', $data->PEKERJAAN);
+		$templateProcessor->setValue('usaha', $this->input->post('usaha'));
 		$templateProcessor->setValue('tgl_surat', $tgl);
 		$filename = 'Surat Keterangan Usaha Update.docx';
 		$templateProcessor->saveAs('asset/surat/'.$filename);
