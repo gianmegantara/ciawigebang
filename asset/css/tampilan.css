@@ -7,7 +7,25 @@ html {
 }
 
 body {
+	padding-top: 70px;
 	margin: 0 0 30px; /* bottom = footer height */
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+.pengajuan {
+    border-color: #e0e0e0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.badge-error {
+  background-color: #d9534f;
 }
 
 .header {
@@ -17,6 +35,22 @@ body {
 	text-align: center;
 	padding: 20;
 	background-color: #337ab7;
+}
+
+.menu2 {
+	background: #337ab7;
+}
+
+.menu2 ul {
+	background-color: #337ab7;
+}
+
+.menu li a, li b {
+	color: white;
+}
+
+.menu li a:hover {
+	background-color: #286090;
 }
 
 .menu {

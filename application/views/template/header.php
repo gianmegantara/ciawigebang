@@ -8,5 +8,8 @@
 	<script src="<?php echo base_url('asset/js/jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('asset/bootstrap/js/bootstrap.min.js'); ?>"></script>
 	<script src="<?php echo base_url('asset/js/validator.min.js'); ?>"></script>
+	<script src="<?php echo base_url('asset/js/sweetalert.js'); ?>"></script>
+	<script src="<?php echo base_url('asset/js/alert.js'); ?>"></script>
+	<script src="<?php echo base_url('asset/js/scanner.js'); ?>" type="text/javascript"></script>
 </head>
 <body>
